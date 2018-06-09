@@ -1,0 +1,34 @@
+{
+	"name": "wearerequired/google-analytics",
+	"description": "WordPress plugin to add Google's analytics.js to your site, the modern way.",
+	"type": "wordpress-plugin",
+	"homepage": "https://github.com/wearerequired/google-analytics",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "required",
+			"email": "info@required.ch",
+			"homepage": "https://required.com",
+			"role": "Company"
+		},
+		{
+			"name": "Dominik Schilling",
+			"email": "dominik@required.ch",
+			"role": "Developer"
+		}
+	],
+	"keywords": [
+		"wordpress",
+		"google-analytics",
+		"async"
+	],
+	"require": {
+		"php": ">=7.0"
+	},
+	"autoload": {
+		"files": [
+			"inc/dependencies-api.php",
+			"inc/settings.php"
+		]
+	}
+}
