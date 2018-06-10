@@ -54,7 +54,7 @@ function sanitize_ga_property( $value, $option ) {
 	// Check for the format.
 	if ( ! preg_match( '/^UA-\d+-\d+$/', $value ) ) {
 		$error = sprintf(
-		/* translators: %s: UA-XXXXX-Y */
+			/* translators: %s: UA-XXXXX-Y */
 			__( 'The property ID of the Google Analytics property doesn&#8217;t match the required format %s.', 'required-google-analytics' ),
 			'<code>UA-XXXXX-Y</code>'
 		);
@@ -110,7 +110,7 @@ function register_settings_ui() {
 			<p class="description" id="required-google-analytics-property-id-description">
 				<?php
 				printf(
-				/* translators: %s: UA-XXXXX-Y */
+					/* translators: %s: UA-XXXXX-Y */
 					__( 'The string %s of the the property ID (also called the "tracking ID") of the Google Analytics property you wish to track.', 'required-google-analytics' ),
 					'<code>UA-XXXXX-Y</code>'
 				);

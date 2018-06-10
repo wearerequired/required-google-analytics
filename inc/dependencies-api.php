@@ -44,7 +44,7 @@ add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2
  * @return string The source URL for the enqueued script.
  */
 function enqueue_scripts_without_version( string $src, string $handle ): string {
-	if ( false === strpos( $src ,'ver=' ) ) {
+	if ( false === strpos( $src, 'ver=' ) ) {
 		return $src;
 	}
 
@@ -55,4 +55,4 @@ function enqueue_scripts_without_version( string $src, string $handle ): string 
 
 	return $src;
 }
-add_filter( 'script_loader_src', __NAMESPACE__ .  '\enqueue_scripts_without_version', 50, 2 );
+add_filter( 'script_loader_src', __NAMESPACE__ . '\enqueue_scripts_without_version', 50, 2 );
