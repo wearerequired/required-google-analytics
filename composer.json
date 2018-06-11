@@ -1,5 +1,5 @@
 {
-	"name": "wearerequired/google-analytics",
+	"name": "wearerequired/required-google-analytics",
 	"description": "WordPress plugin to add Google's analytics.js to your site, the modern way.",
 	"type": "wordpress-plugin",
 	"homepage": "https://github.com/wearerequired/google-analytics",

@@ -11,7 +11,7 @@ Beside that, the plugin doesn't do more. No fancy report view in your admin, no 
 
 Install via Composer
 
-	$ composer require wearerequired/google-analytics
+	$ composer require wearerequired/required-google-analytics
 
 Add you property ID at Settings > Reading > Google Analytics.
 
