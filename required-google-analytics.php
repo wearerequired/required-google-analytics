@@ -34,6 +34,14 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
 
+// Settings and options.
+add_action( 'init', __NAMESPACE__ . '\register_settings' );
+add_action( 'admin_init', __NAMESPACE__ . '\register_settings_ui' );
+
+// Extended dependencies API.
+add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2 );
+add_filter( 'script_loader_src', __NAMESPACE__ . '\enqueue_scripts_without_version', 50, 2 );
+
 /**
  * Enqueues the async tracking snippet with allowing modern browsers to preload the script.
  *

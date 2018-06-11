@@ -28,7 +28,6 @@ function enqueue_scripts_async( string $tag, string $handle ): string {
 
 	return $tag;
 }
-add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2 );
 
 /**
  * Removes the version string appended to a script URL.
@@ -55,4 +54,3 @@ function enqueue_scripts_without_version( string $src, string $handle ): string 
 
 	return $src;
 }
-add_filter( 'script_loader_src', __NAMESPACE__ . '\enqueue_scripts_without_version', 50, 2 );

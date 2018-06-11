@@ -27,7 +27,6 @@ function register_settings() {
 
 	add_filter( 'sanitize_option_required_ga_property_id', __NAMESPACE__ . '\sanitize_ga_property', 10, 2 );
 }
-add_action( 'init', __NAMESPACE__ . '\register_settings' );
 
 /**
  * Sanitizes a Google Analytics property ID from user input.
@@ -125,5 +124,4 @@ function register_settings_ui() {
 		]
 	);
 }
-add_action( 'admin_init', __NAMESPACE__ . '\register_settings_ui' );
 
