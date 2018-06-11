@@ -17,6 +17,11 @@ Add you property ID at Settings > Reading > Google Analytics.
 
 ## Changelog
 
+### 1.1.0
+
+* Fix fatal error when used in a project setup.
+* Rename package to `required-google-analytics`.
+
 ### 1.0.0
 
 * Initial release.
