@@ -40,7 +40,6 @@ add_action( 'admin_init', __NAMESPACE__ . '\register_settings_ui' );
 
 // Extended dependencies API.
 add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2 );
-add_filter( 'script_loader_src', __NAMESPACE__ . '\enqueue_scripts_without_version', 50, 2 );
 
 /**
  * Enqueues the async tracking snippet with allowing modern browsers to preload the script.
@@ -57,10 +56,11 @@ function enqueue_google_analytics_tracking_script() {
 
 	wp_enqueue_script(
 		'google-analytics',
-		'https://www.google-analytics.com/analytics.js'
+		'https://www.google-analytics.com/analytics.js',
+		[],
+		null // No version.
 	);
 	wp_script_add_data( 'google-analytics', 'async', true );
-	wp_script_add_data( 'google-analytics', 'no-version', true );
 
 	$property_id = wp_json_encode( $property_id );
 	wp_add_inline_script(
