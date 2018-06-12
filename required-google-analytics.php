@@ -3,7 +3,7 @@
  * Plugin Name: Google Analytics
  * Plugin URI:  https://github.com/wearerequired/google-analytics/
  * Description: Adds Google's analytics.js to your site, the modern way.
- * Version:     1.1.0
+ * Version:     1.2.0
  * Author:      required
  * Author URI:  https://required.com
  * License:     GPL-2.0+

@@ -17,6 +17,10 @@ Add you property ID at Settings > Reading > Google Analytics.
 
 ## Changelog
 
+### 1.2.0
+
+* Remove the `'no-version'` script data support. Instead pass `null` as version to prevent adding a version argument.
+
 ### 1.1.0
 
 * Fix fatal error when used in a project setup.
