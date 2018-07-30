@@ -30,6 +30,8 @@
 
 namespace Required\GoogleAnalytics;
 
+use function Required\Traduttore_Registry\add_project;
+
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
@@ -37,6 +39,15 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 // Settings and options.
 add_action( 'init', __NAMESPACE__ . '\register_settings' );
 add_action( 'admin_init', __NAMESPACE__ . '\register_settings_ui' );
+
+// Translations.
+add_action( 'init', function() {
+	add_project(
+		'plugin',
+		'required-google-analytics',
+		'https://translate.required.com/api/translations/wearerequired/required-google-analytics/'
+	);
+} );
 
 // Extended dependencies API.
 add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2 );

@@ -23,7 +23,8 @@
 		"async"
 	],
 	"require": {
-		"php": ">=7.0"
+		"php": ">=7.0",
+		"wearerequired/traduttore-registry": "^1.0"
 	},
 	"autoload": {
 		"files": [
