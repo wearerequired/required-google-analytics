@@ -1,8 +1,8 @@
 # Google Analytics
 
-A lightweight WordPress plugin to add Google's analytics.js to your site, the modern way.
+A lightweight WordPress plugin to add Google's global site tag (gtag.js) to your site, the modern way.
 
-The modern way? Google suggests the [alternative async tracking snippet](https://developers.google.com/analytics/devguides/collection/analyticsjs/#alternative_async_tracking_snippet) to add support for preloading, which will provide a small performance boost on modern browsers.  
+The modern way? The script is added with support for preloading, which will provide a small performance boost on modern browsers.  
 Modern browsers are those that support the `async` script attribute. This does not include IE 9 and older mobile browsers.
 
 Beside that, the plugin doesn't do more. No fancy report view in your admin, no authentication requirements, no additional scripts, and no ads for random blog posts.
@@ -17,17 +17,8 @@ Install via Composer
 
 Add you property ID at Settings > Reading > Google Analytics.
 
-## Changelog
+## Support for analytics.js (Universal Analytics)
 
-### 1.2.0
+Starting with version 2.0 the plugin enqueues [gtag.js](https://developers.google.com/analytics/devguides/collection/gtagjs/). If you need support for analytics.js you can continue using the 1.x branch.
 
-* Remove the `'no-version'` script data support. Instead pass `null` as version to prevent adding a version argument.
-
-### 1.1.0
-
-* Fix fatal error when used in a project setup.
-* Rename package to `required-google-analytics`.
-
-### 1.0.0
-
-* Initial release.
+	$ composer require wearerequired/required-google-analytics:"^1.0"

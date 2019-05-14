@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name: Google Analytics
- * Plugin URI:  https://github.com/wearerequired/google-analytics/
- * Description: Adds Google's analytics.js to your site, the modern way.
- * Version:     1.2.0
+ * Plugin URI:  https://github.com/wearerequired/required-google-analytics
+ * Description: Adds Google's global site tag (gtag.js) to your site, the modern way.
+ * Version:     2.0.0
  * Author:      required
  * Author URI:  https://required.com
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
- * Copyright (c) 2018 required (email: info@required.ch)
+ * Copyright (c) 2018-2019 required (email: info@required.ch)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -56,8 +56,9 @@ add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2
  * Enqueues the async tracking snippet with allowing modern browsers to preload the script.
  *
  * @since 1.0.0
+ * @since 2.0.0 Switched from analytics.js to gtag.js.
  *
- * @link https://developers.google.com/analytics/devguides/collection/analyticsjs/#alternative_async_tracking_snippet
+ * @link https://developers.google.com/analytics/devguides/collection/gtagjs/
  */
 function enqueue_google_analytics_tracking_script() {
 	$property_id = get_option( 'required_ga_property_id' );
@@ -65,11 +66,16 @@ function enqueue_google_analytics_tracking_script() {
 		return;
 	}
 
+	// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- External file.
 	wp_enqueue_script(
 		'google-analytics',
-		'https://www.google-analytics.com/analytics.js',
+		add_query_arg(
+			'id',
+			$property_id,
+			'https://www.googletagmanager.com/gtag/js'
+		),
 		[],
-		null // No version.
+		null
 	);
 	wp_script_add_data( 'google-analytics', 'async', true );
 
@@ -77,7 +83,7 @@ function enqueue_google_analytics_tracking_script() {
 	wp_add_inline_script(
 		'google-analytics',
 		<<<JS
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga("create", {$property_id}, "auto");ga("set", "forceSSL", true);ga("set", "anonymizeIp", true);ga("send","pageview");
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',{$property_id},{'anonymize_ip':true,'forceSSL':true});
 JS
 		,
 		'before'

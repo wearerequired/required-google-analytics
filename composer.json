@@ -1,8 +1,8 @@
 {
 	"name": "wearerequired/required-google-analytics",
-	"description": "WordPress plugin to add Google's analytics.js to your site, the modern way.",
+	"description": "WordPress plugin to add Google's global site tag (gtag.js) to your site, the modern way.",
 	"type": "wordpress-plugin",
-	"homepage": "https://github.com/wearerequired/google-analytics",
+	"homepage": "https://github.com/wearerequired/required-google-analytics",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
@@ -15,16 +15,22 @@
 			"name": "Dominik Schilling",
 			"email": "dominik@required.ch",
 			"role": "Developer"
+		},
+		{
+			"name": "Pascal Birchler",
+			"role": "Developer"
 		}
 	],
 	"keywords": [
 		"wordpress",
 		"google-analytics",
-		"async"
+		"async",
+		"dns-prefetch",
+		"gtag"
 	],
 	"require": {
 		"php": ">=7.0",
-		"wearerequired/traduttore-registry": "^1.0"
+		"wearerequired/traduttore-registry": "^1.0 || ^2.0"
 	},
 	"autoload": {
 		"files": [
