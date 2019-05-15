@@ -45,7 +45,7 @@ add_action( 'init', function() {
 	add_project(
 		'plugin',
 		'required-google-analytics',
-		'https://translate.required.com/api/translations/wearerequired/required-google-analytics/'
+		'https://translate.required.com/api/translations/required/required-google-analytics/'
 	);
 } );
 
