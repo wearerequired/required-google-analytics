@@ -8,5 +8,6 @@
 				"babel-preset-minify"
 			]
 		}
-	}
+	},
+	"comments": false
 }
