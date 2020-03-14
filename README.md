@@ -17,6 +17,14 @@ Install via Composer
 
 Add you property ID at Settings > Reading > Google Analytics.
 
+## Disable Analytics for opted-out users
+
+The plugin provides a function to let users [opt out of Google Analytics measurement](https://developers.google.com/analytics/devguides/collection/gtagjs/user-opt-out). If the function `window.requiredGADoOptOut()` is called a `ga-opted-out` item is stored in the local browser storage and the `window` property `window['ga-disable-PROPERTY_ID']` will be set to `true`.
+
+Example:
+
+	<a href="#" onclick="requiredGADoOptOut();return false">Opt-out from Google Analytics for this site.</a>
+
 ## Support for analytics.js (Universal Analytics)
 
 Starting with version 2.0 the plugin enqueues [gtag.js](https://developers.google.com/analytics/devguides/collection/gtagjs/). If you need support for analytics.js you can continue using the 1.x branch.

@@ -1,0 +1,43 @@
+{
+  "name": "required-google-analytics",
+  "version": "2.0.1",
+  "description": "Adds Google's global site tag (gtag.js) to your site, the modern way.",
+  "homepage": "https://required.com",
+  "license": "GPL-2.0-or-later",
+  "author": {
+    "name": "required",
+    "email": "support@required.ch",
+    "url": "https://required.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wearerequired/required-google-analytics"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-preset-minify": "^0.5.1"
+  },
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "ie >= 11",
+      "last 1 Android versions",
+      "last 1 ChromeAndroid versions",
+      "last 2 Chrome versions",
+      "last 2 Firefox versions",
+      "last 2 Safari versions",
+      "last 2 iOS versions",
+      "last 2 Edge versions",
+      "last 2 Opera versions"
+    ],
+    "development": [
+      "last 2 Chrome versions"
+    ]
+  },
+  "scripts": {
+    "build": "NODE_ENV=production babel assets/js/src/inline-script.js --out-file assets/js/inline-script.js",
+    "dev": "NODE_ENV=development babel assets/js/src/inline-script.js --watch --out-file assets/js/inline-script.js"
+  }
+}
