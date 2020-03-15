@@ -25,6 +25,26 @@ Example:
 
 	<a href="#" onclick="requiredGADoOptOut();return false">Opt-out from Google Analytics for this site.</a>
 
+## Event Tracking
+
+The plugin provides a small layer that transform data attributes on an HTML element to a [Google Analytics event](https://developers.google.com/analytics/devguides/collection/gtagjs/events). To enable the layer use the following filter:
+
+	add_filter( 'required_ga.enable_event_tracking', '__return_true' );
+
+To track the click event of a button you can now use the following data attributes:
+
+* `data-ga-event-action`: Event action.
+* `data-ga-event-on`: Optional. Event trigger. Defaults to `click` and can be any [DOM event](https://developer.mozilla.org/en-US/docs/Web/Events).
+* `data-ga-event-category`:  Optional. Event category.
+* `data-ga-event-label`: Optional. Event label.
+* `data-ga-event-value`: Optional. Event value.
+
+Example usage:
+
+	<button data-ga-event-action="xyz">Click me!</button>
+
+	<button data-ga-event-action="play_video" data-ga-event-category="engagement">Click me!</button>
+
 ## Support for analytics.js (Universal Analytics)
 
 Starting with version 2.0 the plugin enqueues [gtag.js](https://developers.google.com/analytics/devguides/collection/gtagjs/). If you need support for analytics.js you can continue using the 1.x branch.
