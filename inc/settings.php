@@ -1,14 +1,12 @@
 <?php
 /**
  * Settings and options.
- *
- * @package Required\GoogleAnalytics
  */
 
 namespace Required\GoogleAnalytics;
 
 /**
- * Register settings and their data.
+ * Registers settings and their data.
  *
  * @since 1.0.0
  */
@@ -124,4 +122,3 @@ function register_settings_ui() {
 		]
 	);
 }
-

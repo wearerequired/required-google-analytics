@@ -24,8 +24,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- * @package Required\GoogleAnalytics
  */
 
 namespace Required\GoogleAnalytics;
@@ -40,17 +38,24 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 add_action( 'init', __NAMESPACE__ . '\register_settings' );
 add_action( 'admin_init', __NAMESPACE__ . '\register_settings_ui' );
 
+// Extended dependencies API.
+add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2 );
+
 // Translations.
-add_action( 'init', function() {
+add_action( 'init', __NAMESPACE__ . '\register_traduttore_project' );
+
+/**
+ * Registers project for translations via Traduttore.
+ *
+ * @since 2.1.0
+ */
+function register_traduttore_project() {
 	add_project(
 		'plugin',
 		'required-google-analytics',
 		'https://translate.required.com/api/translations/required/required-google-analytics/'
 	);
-} );
-
-// Extended dependencies API.
-add_filter( 'script_loader_tag', __NAMESPACE__ . '\enqueue_scripts_async', 50, 2 );
+}
 
 /**
  * Enqueues the async tracking snippet with allowing modern browsers to preload the script.
@@ -66,7 +71,7 @@ function enqueue_google_analytics_tracking_script() {
 		return;
 	}
 
-	// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- External file.
+	// phpcs:ignore WordPress.WP.EnqueuedResourceParameters -- External file.
 	wp_enqueue_script(
 		'google-analytics',
 		add_query_arg(

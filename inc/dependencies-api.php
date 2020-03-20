@@ -1,8 +1,6 @@
 <?php
 /**
  * Extensions for WordPress' Dependencies API.
- *
- * @package Required\GoogleAnalytics
  */
 
 namespace Required\GoogleAnalytics;
