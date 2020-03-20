@@ -87,5 +87,24 @@ function enqueue_google_analytics_tracking_script() {
 		$script,
 		'before'
 	);
+
+	/**
+	 * Filters whether to enable event tracking.
+	 *
+	 * @since 2.1.0
+	 *
+	 * @param bool $enable Whether to enable event tracking.Default false.
+	 */
+	$event_tracking_enabled = apply_filters( 'required_ga.enable_event_tracking', false );
+
+	if ( $event_tracking_enabled ) {
+		wp_enqueue_script(
+			'google-analytics-events',
+			plugins_url( '/assets/js/events.js', __FILE__ ),
+			[ 'google-analytics' ],
+			'20200315',
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_google_analytics_tracking_script' );

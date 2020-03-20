@@ -37,7 +37,7 @@
     ]
   },
   "scripts": {
-    "build": "NODE_ENV=production babel assets/js/src/inline-script.js --out-file assets/js/inline-script.js",
-    "dev": "NODE_ENV=development babel assets/js/src/inline-script.js --watch --out-file assets/js/inline-script.js"
+    "build": "NODE_ENV=production babel assets/js/src --out-dir assets/js",
+    "dev": "NODE_ENV=development babel assets/js/src --watch --out-dir assets/js"
   }
 }
