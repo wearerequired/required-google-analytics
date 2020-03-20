@@ -79,13 +79,12 @@ function enqueue_google_analytics_tracking_script() {
 	);
 	wp_script_add_data( 'google-analytics', 'async', true );
 
-	$property_id = wp_json_encode( $property_id );
+	// Load JavaScript file for inline usage. Replace placeholder for property ID.
+	$script = file_get_contents( __DIR__ . '/assets/js/inline-script.js' );
+	$script = str_replace( '__PROPERTY_ID__', esc_js( $property_id ), $script );
 	wp_add_inline_script(
 		'google-analytics',
-		<<<JS
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',{$property_id},{'anonymize_ip':true,'forceSSL':true});
-JS
-		,
+		$script,
 		'before'
 	);
 }
