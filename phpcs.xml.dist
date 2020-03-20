@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruleset name="required Google Analytics">
+	<description>Coding Standard for required Google Analytics plugin.</description>
+
+	<file>.</file>
+
+	<rule ref="Required">
+		<exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="required-google-analytics"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="required_ga"/>
+				<element value="Required\GoogleAnalytics"/>
+			</property>
+		</properties>
+	</rule>
+
+	<exclude-pattern>/assets/*</exclude-pattern>
+</ruleset>
