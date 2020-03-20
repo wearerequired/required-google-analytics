@@ -3,13 +3,13 @@
  * Plugin Name: Google Analytics
  * Plugin URI:  https://github.com/wearerequired/required-google-analytics
  * Description: Adds Google's global site tag (gtag.js) to your site, the modern way.
- * Version:     2.0.1
+ * Version:     2.1.0
  * Author:      required
  * Author URI:  https://required.com
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
- * Copyright (c) 2018-2019 required (email: info@required.ch)
+ * Copyright (c) 2018-2020 required (email: info@required.ch)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
