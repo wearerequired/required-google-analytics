@@ -76,7 +76,7 @@ function sanitize_ga_property( $value, $option ) {
 function register_settings_ui() {
 	add_settings_section(
 		'required-google-analytics',
-		__( 'Google Analytics', 'required-google-analytics' ),
+		'<span id="google-analytics">' . __( 'Google Analytics', 'required-google-analytics' ) . '</span>',
 		function() {
 			?>
 			<p>
@@ -121,4 +121,25 @@ function register_settings_ui() {
 			'label_for' => 'required-google-analytics-property-id',
 		]
 	);
+}
+
+/**
+ * Adds settings link to action links displayed in the Plugins list table.
+ *
+ * @since 2.2.0
+ *
+ * @param string[] $actions An array of plugin action links.
+ * @return string[] An array of plugin action links.
+ */
+function add_settings_action_link( $actions ) {
+	if ( current_user_can( 'manage_options' ) ) {
+		$settings_action = sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( admin_url( 'options-reading.php#google-analytics' ) ),
+			__( 'Settings', 'required-google-analytics' )
+		);
+		array_unshift( $actions, $settings_action );
+	}
+
+	return $actions;
 }
