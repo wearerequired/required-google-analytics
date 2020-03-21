@@ -23,7 +23,7 @@
 	}
 
 	gtag( 'js', new Date() );
-	gtag( 'config', '__PROPERTY_ID__', { anonymize_ip: true, forceSSL: true } );
+	gtag( 'config', '__PROPERTY_ID__', __ADDITIONAL_CONFIG_INFO__ );
 
 	// Make gtag object and opt-out function available.
 	window.requiredGADoOptOut = doOptOut;

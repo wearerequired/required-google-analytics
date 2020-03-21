@@ -84,9 +84,35 @@ function enqueue_google_analytics_tracking_script() {
 	);
 	wp_script_add_data( 'google-analytics', 'async', true );
 
+	$additional_config_info = [
+		'anonymize_ip' => true,
+		'forceSSL'     => true,
+	];
+
+	/**
+	 * Filters the additional config info passed to the config command.
+	 *
+	 * @link https://developers.google.com/gtagjs/reference/api#config
+	 *
+	 * @since 2.2.0
+	 *
+	 * @param array $additional_config_info Additional config info passed to the config command.
+	 */
+	$additional_config_info = apply_filters( 'required_ga.additional_config_info', $additional_config_info );
+
 	// Load JavaScript file for inline usage. Replace placeholder for property ID.
 	$script = file_get_contents( __DIR__ . '/assets/js/inline-script.js' );
-	$script = str_replace( '__PROPERTY_ID__', esc_js( $property_id ), $script );
+	$script = str_replace(
+		[
+			'__PROPERTY_ID__',
+			'__ADDITIONAL_CONFIG_INFO__',
+		],
+		[
+			esc_js( $property_id ),
+			wp_json_encode( $additional_config_info ),
+		],
+		$script
+	);
 	wp_add_inline_script(
 		'google-analytics',
 		$script,
@@ -98,7 +124,7 @@ function enqueue_google_analytics_tracking_script() {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param bool $enable Whether to enable event tracking.Default false.
+	 * @param bool $enable Whether to enable event tracking. Default false.
 	 */
 	$event_tracking_enabled = apply_filters( 'required_ga.enable_event_tracking', false );
 
