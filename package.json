@@ -1,6 +1,6 @@
 {
   "name": "required-google-analytics",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Adds Google's global site tag (gtag.js) to your site, the modern way.",
   "homepage": "https://required.com",
   "license": "GPL-2.0-or-later",
