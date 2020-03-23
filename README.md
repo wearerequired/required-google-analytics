@@ -7,8 +7,6 @@ Modern browsers are those that support the `async` script attribute. This does n
 
 Beside that, the plugin doesn't do more. No fancy report view in your admin, no authentication requirements, no additional scripts, and no ads for random blog posts.
 
-By default the [`forceSSL`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#forceSSL) and [`anonymizeIp`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#anonymizeIp) fields are set to true.
-
 ## Installation
 
 Install via Composer
@@ -44,6 +42,24 @@ Example usage:
 	<button data-ga-event-action="xyz">Click me!</button>
 
 	<button data-ga-event-action="play_video" data-ga-event-category="engagement">Click me!</button>
+
+## Additional Config Info
+
+To configure [custom dimensions and metrics](https://developers.google.com/analytics/devguides/collection/gtagjs/custom-dims-mets) you can use the `required_ga.additional_config_info` filter. By default the [`forceSSL`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#forceSSL) and [`anonymizeIp`](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#anonymizeIp) fields are set to true.
+
+Example usage:
+
+	add_filter( 'required_ga.enable_event_tracking', function( $config ) {
+		$config['custom_map'] = [
+			'dimension1' => 'author',
+		];
+
+		if ( is_singular( 'post' ) ) {
+			$config['author'] = get_the_author_meta( 'display_name', get_post()->post_author )
+		}
+
+		return $config;
+	} );
 
 ## Support for analytics.js (Universal Analytics)
 
