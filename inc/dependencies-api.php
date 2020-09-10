@@ -20,8 +20,12 @@ namespace Required\GoogleAnalytics;
  */
 function enqueue_scripts_async( string $tag, string $handle ): string {
 	$async = wp_scripts()->get_data( $handle, 'async' );
-	if ( $async ) {
-		return str_replace( ' src=', ' async="async" src=', $tag );
+	if ( ! $async ) {
+		return $tag;
+	}
+
+	if ( ! preg_match( '#\sasync(=|>|\s)#', $tag ) ) {
+		$tag = preg_replace( '#(?=></script>)#', ' async', $tag, 1 );
 	}
 
 	return $tag;
