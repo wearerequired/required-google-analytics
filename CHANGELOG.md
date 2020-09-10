@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.1] - 2020-09-10
+### Fixed
+- Prevent duplicate `async` attributes added by other plugins.
+
 ## [2.2.0]
 ### Added
 - Action link in the Plugins list table to settings page.
@@ -40,7 +44,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Enqueue Google's analytics.js (Universal Analytics) with `async` and DNS prefetching.
 
-[Unreleased]: https://github.com/wearerequired/required-google-analytics/compare/2.2.0...HEAD
+[Unreleased]: https://github.com/wearerequired/required-google-analytics/compare/2.2.1...HEAD
+[2.2.1]: https://github.com/wearerequired/required-google-analytics/compare/2.2.0...2.2.1
 [2.2.0]: https://github.com/wearerequired/required-google-analytics/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/wearerequired/required-google-analytics/compare/2.0.0...2.1.0
 [2.0.1]: https://github.com/wearerequired/required-google-analytics/compare/2.0.0...2.0.11
