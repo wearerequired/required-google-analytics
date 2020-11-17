@@ -93,9 +93,9 @@ function enqueue_google_analytics_tracking_script() {
 	/**
 	 * Filters the additional config info passed to the config command.
 	 *
-	 * @link https://developers.google.com/gtagjs/reference/api#config
-	 *
 	 * @since 2.2.0
+	 *
+	 * @link https://developers.google.com/gtagjs/reference/api#config
 	 *
 	 * @param array $additional_config_info Additional config info passed to the config command.
 	 */

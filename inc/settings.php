@@ -45,15 +45,16 @@ function sanitize_ga_property( $value, $option ) {
 
 	$error = '';
 
-	// Ensure 'UA' is uppercase.
+	// Ensure ID is uppercase.
 	$value = strtoupper( $value );
 
 	// Check for the format.
-	if ( ! preg_match( '/^UA-\d+-\d+$/', $value ) ) {
+	if ( ! preg_match( '/^(UA-\d+-\d+)|(G-[A-Z0-9]+)$/', $value ) ) {
 		$error = sprintf(
-			/* translators: %s: UA-XXXXX-Y */
-			__( 'The property ID of the Google Analytics property doesn&#8217;t match the required format %s.', 'required-google-analytics' ),
-			'<code>UA-XXXXX-Y</code>'
+			/* translators: 1: UA-XXXXX-XX, 2: G-XXXXXXXXXX */
+			__( 'The property ID of the Google Analytics property doesn&#8217;t match the required format %1$s or %2$s.', 'required-google-analytics' ),
+			'<code>UA-XXXXX-XX</code>',
+			'<code>G-XXXXXXXXXX</code>'
 		);
 	}
 
@@ -107,9 +108,10 @@ function register_settings_ui() {
 			<p class="description" id="required-google-analytics-property-id-description">
 				<?php
 				printf(
-					/* translators: %s: UA-XXXXX-Y */
-					__( 'The string %s of the the property ID (also called the "tracking ID") of the Google Analytics property you wish to track.', 'required-google-analytics' ),
-					'<code>UA-XXXXX-Y</code>'
+					/* translators: 1: UA-XXXXX-XX, 2: G-XXXXXXXXXX */
+					__( 'The string %1$s of the UA property ID or %2$s of th GA4 data stream ID to which you want to send data.', 'required-google-analytics' ),
+					'<code>UA-XXXXX-XX</code>',
+					'<code>G-XXXXXXXXXX</code>'
 				);
 				?>
 			</p>
