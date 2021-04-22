@@ -3,13 +3,13 @@
  * Plugin Name: Google Analytics
  * Plugin URI:  https://github.com/wearerequired/required-google-analytics
  * Description: Adds Google's global site tag (gtag.js) to your site, the modern way.
- * Version:     2.2.0
+ * Version:     2.4.0
  * Author:      required
  * Author URI:  https://required.com
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
- * Copyright (c) 2018-2020 required (email: info@required.ch)
+ * Copyright (c) 2018-2021 required (email: info@required.ch)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -145,6 +145,8 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_google_analytics_tra
  * Adds hint to prefetch DNS for www.google-analytics.com.
  *
  * The global site tag (gtag.js) loads https://www.google-analytics.com/analytics.js.
+ *
+ * @since 2.4.0
  *
  * @param array  $urls          URLs to print for resource hints.
  * @param string $relation_type The relation type the URLs are printed for.
