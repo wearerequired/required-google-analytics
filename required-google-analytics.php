@@ -140,3 +140,21 @@ function enqueue_google_analytics_tracking_script() {
 	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_google_analytics_tracking_script' );
+
+/**
+ * Adds hint to prefetch DNS for www.google-analytics.com.
+ *
+ * The global site tag (gtag.js) loads https://www.google-analytics.com/analytics.js.
+ *
+ * @param array  $urls          URLs to print for resource hints.
+ * @param string $relation_type The relation type the URLs are printed for.
+ * @return array URLs to print for resource hints.
+ */
+function resource_hints( $urls, $relation_type ) {
+	if ( 'dns-prefetch' === $relation_type ) {
+		$urls[] = 'https://www.google-analytics.com';
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', __NAMESPACE__ . '\resource_hints', 10, 2 );
