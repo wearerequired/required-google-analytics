@@ -14,9 +14,9 @@
     "url": "https://github.com/wearerequired/required-google-analytics"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
     "babel-preset-minify": "^0.5.1"
   },
   "browserslist": {
