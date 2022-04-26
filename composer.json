@@ -29,7 +29,7 @@
 		"gtag"
 	],
 	"require": {
-		"php": ">=7.0",
+		"php": ">=7.4",
 		"wearerequired/traduttore-registry": "^1.0 || ^2.0"
 	},
 	"autoload": {
