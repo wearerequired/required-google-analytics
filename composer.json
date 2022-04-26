@@ -1,9 +1,15 @@
 {
 	"name": "wearerequired/required-google-analytics",
 	"description": "WordPress plugin to add Google's global site tag (gtag.js) to your site, the modern way.",
-	"type": "wordpress-plugin",
-	"homepage": "https://github.com/wearerequired/required-google-analytics",
 	"license": "GPL-2.0-or-later",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"wordpress",
+		"google-analytics",
+		"async",
+		"dns-prefetch",
+		"gtag"
+	],
 	"authors": [
 		{
 			"name": "required",
@@ -21,13 +27,7 @@
 			"role": "Developer"
 		}
 	],
-	"keywords": [
-		"wordpress",
-		"google-analytics",
-		"async",
-		"dns-prefetch",
-		"gtag"
-	],
+	"homepage": "https://github.com/wearerequired/required-google-analytics",
 	"require": {
 		"php": ">=7.4",
 		"wearerequired/traduttore-registry": "^1.0 || ^2.0"
