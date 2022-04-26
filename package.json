@@ -17,25 +17,12 @@
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
+    "@wearerequired/browserslist-config": "^0.3.0",
     "babel-preset-minify": "^0.5.1"
   },
-  "browserslist": {
-    "production": [
-      "> 1%",
-      "ie >= 11",
-      "last 1 Android versions",
-      "last 1 ChromeAndroid versions",
-      "last 2 Chrome versions",
-      "last 2 Firefox versions",
-      "last 2 Safari versions",
-      "last 2 iOS versions",
-      "last 2 Edge versions",
-      "last 2 Opera versions"
-    ],
-    "development": [
-      "last 2 Chrome versions"
-    ]
-  },
+  "browserslist": [
+    "extends @wearerequired/browserslist-config/modern"
+  ],
   "scripts": {
     "build": "NODE_ENV=production babel assets/js/src --out-dir assets/js",
     "dev": "NODE_ENV=development babel assets/js/src --watch --out-dir assets/js"
