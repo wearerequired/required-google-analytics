@@ -1,8 +1,8 @@
-( () => {
-	const propertyId = window.requiredGAPropertyId || null;
-	const measurementId = window.requiredGA4MeasurementId || null;
-	const config = window.requiredGAAdditionalConfigInfo || {};
-	const storage = window.localStorage;
+( ( w ) => {
+	const propertyId = w.requiredGAPropertyId || null;
+	const measurementId = w.requiredGA4MeasurementId || null;
+	const config = w.requiredGAAdditionalConfigInfo || {};
+	const storage = w.localStorage;
 
 	const hasOptedOut = () =>  {
 		try {
@@ -19,16 +19,16 @@
 
 	// Disable Analytics for opted-out users.
 	if ( propertyId ) {
-		window[`ga-disable-${ propertyId }`] = hasOptedOut();
+		w[`ga-disable-${ propertyId }`] = hasOptedOut();
 	}
 	if ( measurementId ) {
-		window[`ga-disable-${ measurementId }`] = hasOptedOut();
+		w[`ga-disable-${ measurementId }`] = hasOptedOut();
 	}
 
 	// Set up the global site tag.
-	window.dataLayer = window.dataLayer || [];
+	w.dataLayer = w.dataLayer || [];
 	function gtag() {
-		window.dataLayer.push( arguments );
+		w.dataLayer.push( arguments );
 	}
 
 	gtag( 'js', new Date() );
@@ -40,6 +40,6 @@
 	}
 
 	// Make gtag object and opt-out function available.
-	window.requiredGADoOptOut = doOptOut;
-	window.gtag = gtag;
-})();
+	w.requiredGADoOptOut = doOptOut;
+	w.gtag = gtag;
+})(window);
