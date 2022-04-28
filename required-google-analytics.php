@@ -141,11 +141,11 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_google_analytics_tra
  *
  * @since 2.4.0
  *
- * @param array  $urls          URLs to print for resource hints.
- * @param string $relation_type The relation type the URLs are printed for.
- * @return array URLs to print for resource hints.
+ * @param string[] $urls          URLs to print for resource hints.
+ * @param string   $relation_type The relation type the URLs are printed for.
+ * @return string[] URLs to print for resource hints.
  */
-function resource_hints( $urls, $relation_type ) {
+function resource_hints( array $urls, string $relation_type ): array {
 	if ( 'dns-prefetch' === $relation_type ) {
 		$urls[] = 'https://www.google-analytics.com';
 	}
