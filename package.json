@@ -24,7 +24,7 @@
     "extends @wearerequired/browserslist-config/modern"
   ],
   "scripts": {
-    "build": "NODE_ENV=production babel assets/js/src --out-dir assets/js",
-    "dev": "NODE_ENV=development babel assets/js/src --watch --out-dir assets/js"
+    "build": "NODE_ENV=production babel assets/src --out-dir assets/dist",
+    "dev": "NODE_ENV=development babel assets/src --watch --out-dir assets/dist"
   }
 }

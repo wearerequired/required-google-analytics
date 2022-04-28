@@ -50,7 +50,7 @@ add_action( 'init', __NAMESPACE__ . '\register_traduttore_project' );
  *
  * @since 2.1.0
  */
-function register_traduttore_project() {
+function register_traduttore_project(): void {
 	add_project(
 		'plugin',
 		'required-google-analytics',
@@ -103,7 +103,7 @@ function enqueue_google_analytics_tracking_script(): void {
 	$additional_config_info = apply_filters( 'required_ga.additional_config_info', $additional_config_info );
 
 	// Load JavaScript file for inline usage.
-	$script    = file_get_contents( __DIR__ . '/assets/js/inline-script.js' );
+	$script    = file_get_contents( __DIR__ . '/assets/dist/inline-script.js' );
 	$variables = 'window.requiredGAPropertyId="' . esc_js( $property_id ) . '";' .
 		'window.requiredGA4MeasurementId="' . esc_js( $measurement_id ) . '";' .
 		'window.requiredGAAdditionalConfigInfo=' . wp_json_encode( $additional_config_info ) . ';';
@@ -125,9 +125,9 @@ function enqueue_google_analytics_tracking_script(): void {
 	if ( $event_tracking_enabled ) {
 		wp_enqueue_script(
 			'google-analytics-events',
-			plugins_url( '/assets/js/events.js', __FILE__ ),
+			plugins_url( '/assets/dist/events.js', __FILE__ ),
 			[ 'google-analytics' ],
-			'20200315',
+			'20220428',
 			true
 		);
 	}
