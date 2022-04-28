@@ -104,9 +104,12 @@ function enqueue_google_analytics_tracking_script(): void {
 
 	// Load JavaScript file for inline usage.
 	$script    = file_get_contents( __DIR__ . '/assets/dist/inline-script.js' );
-	$variables = 'window.requiredGAPropertyId="' . esc_js( $property_id ) . '";' .
-		'window.requiredGA4MeasurementId="' . esc_js( $measurement_id ) . '";' .
-		'window.requiredGAAdditionalConfigInfo=' . wp_json_encode( $additional_config_info ) . ';';
+	$variables = [
+		'propertyId'           => $property_id,
+		'measurementId'        => $measurement_id,
+		'additionalConfigInfo' => $additional_config_info,
+	];
+	$variables = 'window.requiredGA=' . wp_json_encode( $variables ) . ';';
 	wp_add_inline_script(
 		'google-analytics',
 		$variables . "\n" . $script,
