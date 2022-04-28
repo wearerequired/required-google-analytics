@@ -23,6 +23,24 @@
   "browserslist": [
     "extends @wearerequired/browserslist-config/modern"
   ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          "babel-preset-minify"
+        ]
+      }
+    },
+    "comments": false
+  },
   "scripts": {
     "build": "NODE_ENV=production babel assets/src --out-dir assets/dist",
     "dev": "NODE_ENV=development babel assets/src --watch --out-dir assets/dist"
