@@ -1,41 +1,46 @@
 {
-	"name": "wearerequired/required-google-analytics",
-	"description": "WordPress plugin to add Google's global site tag (gtag.js) to your site, the modern way.",
-	"license": "GPL-2.0-or-later",
-	"type": "wordpress-plugin",
-	"keywords": [
-		"wordpress",
-		"google-analytics",
-		"async",
-		"dns-prefetch",
-		"gtag"
-	],
-	"authors": [
-		{
-			"name": "required",
-			"email": "info@required.ch",
-			"homepage": "https://required.com",
-			"role": "Company"
-		},
-		{
-			"name": "Dominik Schilling",
-			"email": "dominik@required.ch",
-			"role": "Developer"
-		},
-		{
-			"name": "Pascal Birchler",
-			"role": "Developer"
-		}
-	],
-	"homepage": "https://github.com/wearerequired/required-google-analytics",
-	"require": {
-		"php": ">=7.4",
-		"wearerequired/traduttore-registry": "^1.0 || ^2.0"
-	},
-	"autoload": {
-		"files": [
-			"inc/dependencies-api.php",
-			"inc/settings.php"
-		]
-	}
+  "name": "wearerequired/required-google-analytics",
+  "description": "WordPress plugin to add Google's global site tag (gtag.js) to your site, the modern way.",
+  "license": "GPL-2.0-or-later",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "wordpress",
+    "google-analytics",
+    "async",
+    "dns-prefetch",
+    "gtag"
+  ],
+  "authors": [
+    {
+      "name": "required",
+      "email": "info@required.ch",
+      "homepage": "https://required.com",
+      "role": "Company"
+    },
+    {
+      "name": "Dominik Schilling",
+      "email": "dominik@required.ch",
+      "role": "Developer"
+    },
+    {
+      "name": "Pascal Birchler",
+      "role": "Developer"
+    }
+  ],
+  "homepage": "https://github.com/wearerequired/required-google-analytics",
+  "require": {
+    "php": ">=7.4",
+    "wearerequired/traduttore-registry": "^1.0 || ^2.0"
+  },
+  "autoload": {
+    "files": [
+      "inc/dependencies-api.php",
+      "inc/settings.php"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.x-dev"
+    }
+  }
 }
