@@ -66,9 +66,10 @@ function register_traduttore_project() {
  *
  * @link https://developers.google.com/analytics/devguides/collection/gtagjs/
  */
-function enqueue_google_analytics_tracking_script() {
-	$property_id = get_option( 'required_ga_property_id' );
-	if ( ! $property_id ) {
+function enqueue_google_analytics_tracking_script(): void {
+	$property_id    = get_option( 'required_ga_property_id' );
+	$measurement_id = get_option( 'required_ga4_measurement_id' );
+	if ( ! $property_id && ! $measurement_id ) {
 		return;
 	}
 
@@ -77,7 +78,7 @@ function enqueue_google_analytics_tracking_script() {
 		'google-analytics',
 		add_query_arg(
 			'id',
-			$property_id,
+			$property_id ?: $measurement_id,
 			'https://www.googletagmanager.com/gtag/js'
 		),
 		[],
@@ -101,22 +102,14 @@ function enqueue_google_analytics_tracking_script() {
 	 */
 	$additional_config_info = apply_filters( 'required_ga.additional_config_info', $additional_config_info );
 
-	// Load JavaScript file for inline usage. Replace placeholder for property ID.
-	$script = file_get_contents( __DIR__ . '/assets/js/inline-script.js' );
-	$script = str_replace(
-		[
-			'__PROPERTY_ID__',
-			'__ADDITIONAL_CONFIG_INFO__',
-		],
-		[
-			esc_js( $property_id ),
-			wp_json_encode( $additional_config_info ),
-		],
-		$script
-	);
+	// Load JavaScript file for inline usage.
+	$script    = file_get_contents( __DIR__ . '/assets/js/inline-script.js' );
+	$variables = 'window.requiredGAPropertyId="' . esc_js( $property_id ) . '";' .
+		'window.requiredGA4MeasurementId="' . esc_js( $measurement_id ) . '";' .
+		'window.requiredGAAdditionalConfigInfo=' . wp_json_encode( $additional_config_info ) . ';';
 	wp_add_inline_script(
 		'google-analytics',
-		$script,
+		$variables . "\n" . $script,
 		'before'
 	);
 

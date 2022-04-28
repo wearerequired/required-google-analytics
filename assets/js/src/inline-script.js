@@ -1,5 +1,9 @@
 ( () => {
+	const propertyId = window.requiredGAPropertyId || null;
+	const measurementId = window.requiredGA4MeasurementId || null;
+	const config = window.requiredGAAdditionalConfigInfo || {};
 	const storage = window.localStorage;
+
 	const hasOptedOut = () =>  {
 		try {
 			return '1' === storage.getItem( 'ga-opted-out' );
@@ -14,7 +18,12 @@
 	}
 
 	// Disable Analytics for opted-out users.
-	window['ga-disable-__PROPERTY_ID__'] = hasOptedOut();
+	if ( propertyId ) {
+		window[`ga-disable-${ propertyId }`] = hasOptedOut();
+	}
+	if ( measurementId ) {
+		window[`ga-disable-${ measurementId }`] = hasOptedOut();
+	}
 
 	// Set up the global site tag.
 	window.dataLayer = window.dataLayer || [];
@@ -23,7 +32,12 @@
 	}
 
 	gtag( 'js', new Date() );
-	gtag( 'config', '__PROPERTY_ID__', __ADDITIONAL_CONFIG_INFO__ );
+	if ( propertyId ) {
+		gtag( 'config', propertyId, config );
+	}
+	if ( measurementId ) {
+		gtag( 'config', measurementId, config );
+	}
 
 	// Make gtag object and opt-out function available.
 	window.requiredGADoOptOut = doOptOut;
