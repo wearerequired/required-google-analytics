@@ -4,10 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.0.0] - 2022-05-09
 ### Changed
 - Drop browser support for IE 11.
-- Add extra setting for measurement ID of a Google Analytics 4 property for dual tagging support.
+- Add extra setting for measurement ID of a Google Analytics 4 property for dual tagging support. The previous setting now only supports a Universal Analytics property (IDs starting with `UA-`).
 
 ## [2.4.0] - 2021-04-22
 ### Added

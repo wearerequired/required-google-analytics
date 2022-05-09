@@ -5,6 +5,8 @@ A lightweight WordPress plugin to add Google's global site tag (gtag.js) to your
 The modern way? The script is added with support for preloading, which will provide a small performance boost on modern browsers.  
 Modern browsers are those that support the `async` script attribute. This does not include IE 9 and older mobile browsers.
 
+You can use this plugin with Universal Analytics or Google Analytics 4 properties or, to help ease the transition period, dual tagging is also supported.
+
 Beside that, the plugin doesn't do more. No fancy report view in your admin, no authentication requirements, no additional scripts, and no ads for random blog posts.
 
 ## Installation
@@ -23,7 +25,7 @@ Example:
 
 	<a href="#" onclick="requiredGADoOptOut();return false">Opt-out from Google Analytics for this site.</a>
 
-## Event Tracking
+## Event Tracking for Universal Analytics
 
 The plugin provides a small layer that transform data attributes on an HTML element to a [Google Analytics event](https://developers.google.com/analytics/devguides/collection/gtagjs/events). To enable the layer use the following filter:
 
