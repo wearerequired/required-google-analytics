@@ -2,18 +2,23 @@
 	const propertyId = config.propertyId || null;
 	const measurementId = config.measurementId || null;
 	const additionalConfigInfo = config.additionalConfigInfo || {};
-	const storage = window.localStorage;
+	let storage;
+	try {
+		// Check if localStorage is available to prevent SecurityErrors when
+		// cookies are disabled.
+		storage = window.localStorage;
+	} catch ( error ) {}
 
 	const hasOptedOut = () =>  {
 		try {
-			return '1' === storage.getItem( 'ga-opted-out' );
+			return !! ( storage && '1' === storage.getItem( 'ga-opted-out' ) );
 		} catch ( error ) {
 			return false;
 		}
 	}
 	const doOptOut = () => {
 		try {
-			storage.setItem( 'ga-opted-out', '1' );
+			storage && storage.setItem( 'ga-opted-out', '1' );
 		} catch ( e ) {}
 	}
 
